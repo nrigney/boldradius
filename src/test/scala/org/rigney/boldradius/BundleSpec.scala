@@ -40,4 +40,9 @@ class BundleSpec extends FlatSpec with Matchers {
         Seq(CartItem(testCatalog(1),1),CartItem(testCatalog(2),3)),
         Seq(BundledItem(testCatalog(1),2,BigDecimal(2.0)))))
   }
+  
+  it should "apply with empty bundles" in {
+    val emptyBundle = Bundle("empty",Nil)
+    emptyBundle.appliesTo(cart3) shouldBe (true)
+  }
 }
